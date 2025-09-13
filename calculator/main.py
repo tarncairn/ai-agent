@@ -16,8 +16,13 @@ def main():
     expression = " ".join(sys.argv[1:])
     try:
         result = calculator.evaluate(expression)
-        to_print = render(expression, result)
-        print(to_print)
+        if result is not None:
+            print(f"Expression: {expression}")
+            print(f"Result: {result}")
+            to_print = render(expression, result)
+            print(to_print)
+        else:
+            print("Error: Expression is empty or contains only whitespace.")
     except Exception as e:
         print(f"Error: {e}")
 
